@@ -1,1 +1,26 @@
+import java.time.Duration;
+import java.util.Scanner;
+
+public class TiempoViaje {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Duration totalDuration = Duration.ofMinutes(0);
+
+        while (true) {
+            System.out.print("Duracion tramo: ");
+            int minutes = scanner.nextInt();
+
+            if (minutes == 0) {
+                break;
+            }
+
+            Duration duration = Duration.ofMinutes(minutes);
+            totalDuration = totalDuration.plus(duration);
+        }
+
+        long hours = totalDuration.toHours();
+        long remainingMinutes = totalDuration.minusHours(hours).toMinutes();
+        System.out.printf("Tiempo total de viaje: %d:%02d horas\n", hours, remainingMinutes);
+    }
+}
 
