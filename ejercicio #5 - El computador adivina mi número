@@ -1,1 +1,28 @@
+import java.util.Scanner;
+
+public class GuessNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int lower = 1;
+        int upper = 100;
+
+        while (true) {
+            int guess = (lower + upper) / 2;
+            System.out.println("Intento: " + guess);
+            System.out.print("Ingrese <, > o =: ");
+            String user_input = scanner.nextLine();
+
+            if (user_input.equals("<")) {
+                upper = guess - 1;
+            } else if (user_input.equals(">")) {
+                lower = guess + 1;
+            } else if (user_input.equals("=")) {
+                System.out.println("¡Adiviné correctamente!");
+                break;
+            } else {
+                System.out.println("Entrada inválida. Por favor, ingresa <, > o =.");
+            }
+        }
+    }
+}
 
